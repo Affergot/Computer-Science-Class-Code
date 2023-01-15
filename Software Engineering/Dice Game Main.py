@@ -9,7 +9,7 @@ root.geometry("700x300")
 root.title("Dice Game")
 mainframe = tk.Frame(root, background="white")
 mainframe.pack(fill="both", expand=True)
-img = Image.open("Software Engineering\Dice.png")
+img = Image.open("Software Engineering\Images\Dice.png")
 photo = ImageTk.PhotoImage(img)
 root.iconphoto(True, photo)
 
