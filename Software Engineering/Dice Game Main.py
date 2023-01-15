@@ -1,8 +1,9 @@
-import random
 import tkinter as tk
 from tkinter import messagebox
 from PIL import Image, ImageTk
+import random
 
+#Current mainframe for the final design of the Dice Game
 
 root = tk.Tk()
 root.geometry("700x300")
@@ -13,7 +14,7 @@ img = Image.open("Software Engineering\Images\Dice.png")
 photo = ImageTk.PhotoImage(img)
 root.iconphoto(True, photo)
 
-text = tk.Label(mainframe, text="Totally Original Dice Game", background=("white"), font=("Brass Mono", 30), foreground=("blue"))
+text = tk.Label(mainframe, text="Totally Original Dice Game", background=("white"), font=("Brass Mono", 30), foreground=("dark orange"))
 text.pack()
 
 dice_frame = tk.Frame(mainframe, borderwidth=5, background=("red"))

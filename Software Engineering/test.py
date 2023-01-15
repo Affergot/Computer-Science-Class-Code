@@ -3,6 +3,8 @@ import tkinter.ttk as ttk
 from PIL import Image, ImageTk
 import random
 
+#File for developing ideas and functions to impliment into the main and final design
+
 root = tk.Tk()
 root.title("Yahtzee")
 
