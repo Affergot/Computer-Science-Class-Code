@@ -27,7 +27,7 @@ def score():
 
 dice_images = []
 for i in range(1, 6+1):
-    image = Image.open(f"Dice{i}_resized.png")
+    image = Image.open(f"Software Engineering\Images\Dice{i}_resized.png")
     dice_images.append(ImageTk.PhotoImage(image))
 
 dice_labels = []
