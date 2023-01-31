@@ -4,10 +4,13 @@ Then check the list to see if any of those words are in the english language
 Put any real words into a new list
 Turn real list into a dictionary with Scrabble point values linked to the appropriate word
 '''
+import json
 import itertools
 from PyDictionary import PyDictionary as EnglishDictionary
 import time
 
+#Try to use the json file dictionary to see if the compile time is faster
+#KnownWords = json.load(open("Computer Science 2\Chapter 8\Scrabble Helper\dictionary.json"))
 
 def AllTileCombinations(UsersCurrentTiles):
     ListOfPossibleWords = []
