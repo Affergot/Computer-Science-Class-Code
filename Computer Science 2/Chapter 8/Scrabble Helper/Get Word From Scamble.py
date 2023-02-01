@@ -9,24 +9,33 @@ import itertools
 from PyDictionary import PyDictionary as EnglishDictionary
 import time
 
-#Try to use the json file dictionary to see if the compile time is faster
-#KnownWords = json.load(open("Computer Science 2\Chapter 8\Scrabble Helper\dictionary.json"))
+
+KnownWords = json.load(open("Computer Science 2\Chapter 8\Scrabble Helper\dictionary.json"))
 
 def AllTileCombinations(UsersCurrentTiles):
-    ListOfPossibleWords = []
+    ListOfTilePermutations = []
     for length in range(len(UsersCurrentTiles)+1):
         for combination in itertools.permutations(UsersCurrentTiles, length):
-            if combination not in ListOfPossibleWords:
-                ListOfPossibleWords += ["".join(combination)]
-    return ListOfPossibleWords
+            if combination not in ListOfTilePermutations:
+                ListOfTilePermutations += ["".join(combination)]
+    return ListOfTilePermutations
 
-def WordsThatExist(RandomWordslist):
+def FiltrationOfMassWords(list):
+    ReasonableWordList = []
+    for gibberish in list:   
+        if len(gibberish) < 3:
+            gibberish = None
+        if gibberish in KnownWords:
+            if gibberish not in ReasonableWordList:
+                ReasonableWordList.append(gibberish)
+    return ReasonableWordList
+
+
+def WordsWithDefinition(RandomWordslist):
     RealWordsList = []
     for word in RandomWordslist:
         if EnglishDictionary.meaning(word,True) is None:
-            pass
-        elif len(word) < 2:
-            pass
+            word = None
         else:
             if word not in RealWordsList:
                 RealWordsList.append(word)            
@@ -39,10 +48,16 @@ def WordsThatExist(RandomWordslist):
 if __name__ == "__main__":
     print("Please enter all of your tiles with a space inbetween. Ex:[a b d e k z r]")
     UsersCurrentTiles = input().lower().split()
-    start = time.time()
-    PossibleWords = AllTileCombinations(UsersCurrentTiles)
-    print(PossibleWords)
-    RealWords = WordsThatExist(PossibleWords)
-    print(RealWords)
-    end = time.time()
-    print(end - start)
+
+    begintimer = time.time()
+
+    AllPermutations = AllTileCombinations(UsersCurrentTiles)
+    print(AllPermutations)
+    FilteredPermutations = FiltrationOfMassWords(AllPermutations)
+    #print(FilteredPermutations)
+    WordsInDictionary = WordsWithDefinition(FilteredPermutations)
+    print(WordsInDictionary)
+
+    endtimer = time.time()
+
+    print(endtimer - begintimer)
