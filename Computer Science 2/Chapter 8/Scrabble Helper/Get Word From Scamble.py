@@ -48,16 +48,9 @@ def WordsWithDefinition(RandomWordslist):
 if __name__ == "__main__":
     print("Please enter all of your tiles with a space inbetween. Ex:[a b d e k z r]")
     UsersCurrentTiles = input().lower().split()
-
-    begintimer = time.time()
-
     AllPermutations = AllTileCombinations(UsersCurrentTiles)
     print(AllPermutations)
     FilteredPermutations = FiltrationOfMassWords(AllPermutations)
     #print(FilteredPermutations)
     WordsInDictionary = WordsWithDefinition(FilteredPermutations)
     print(WordsInDictionary)
-
-    endtimer = time.time()
-
-    print(endtimer - begintimer)
