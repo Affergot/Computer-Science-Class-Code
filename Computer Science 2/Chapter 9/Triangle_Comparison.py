@@ -1,3 +1,5 @@
+import time
+from TypedOut import *
 class Triangle:
     def __init__(shape):
         shape.base = None
@@ -9,20 +11,34 @@ class Triangle:
     def set_shape_height(shape, int):
         shape.height = int
     
-    def compare_shape_areas(shape_one, shape_two):
-        area_of_shape_one = shape_one.base * shape_one.height / 2
-        area_of_shape_two = shape_two.base * shape_two.height / 2
-        if area_of_shape_one > area_of_shape_two:
-            print("Shape one is larger in area")
-        else:
-            print("Shape two is larger in area")
+    def get_triangle_area(shape):
+        return shape.base * shape.height / 2
     
-triangle1 = Triangle()
-triangle2 = Triangle()
+if __name__ == "__main__":
+    
+    triangle1 = Triangle()
+    triangle2 = Triangle()
+    charByChar("Enter the base and height of two triangles to compare their areas\n")
+    time.sleep(1)
+    charByChar("Enter the base length for first Triangle\n")
+    triangle1.set_shape_base(int(input(":")))
 
-triangle1.set_shape_base(int(input("Enter the base length for triangle 1")))
-triangle1.set_shape_height(int(input("Enter the height length for triangle 1")))
-triangle2.set_shape_base(int(input("Enter the base length for triangle 2")))
-triangle2.set_shape_height(int(input("Enter the height length for triangle 2")))
+    charByChar("Enter the height length for the first Triangle\n")
+    triangle1.set_shape_height(int(input(":")))
 
-Triangle.compare_shape_areas(triangle1, triangle2)
+    charByChar("Enter the base length for the second Triangle\n")
+    triangle2.set_shape_base(int(input(":")))
+
+    charByChar("Enter the height length for the second Triangle\n")
+    triangle2.set_shape_height(int(input(":")))
+
+    triangle1_area = triangle1.get_triangle_area()
+    triangle2_area = triangle2.get_triangle_area()
+
+    area_difference = triangle1_area - triangle2_area
+    if area_difference == 0:
+        charByChar("The two triangles have the same area.")
+    if area_difference > 0:
+        charByChar(f"The first triangle is {area_difference} units larger than the second triangle with a total area of {triangle1_area}.")
+    elif area_difference < 0:
+        charByChar(f"The second triangle is {abs(area_difference)} units larger than the first triangle with a total area of {triangle2_area}.")
