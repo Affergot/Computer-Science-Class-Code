@@ -34,8 +34,8 @@ class GVDie:
 if __name__ == "__main__":
 
     die = GVDie()
-    die.set_seed(15)
-    charByChar("See how many times it takes to roll a specific number on a die.")
+    die.set_seed(int(input("Enter a seed value\n:")))
+    charByChar("See how many times it takes to roll a specific number on a die.\n")
     charByChar("Enter the desired face value\n")
     selected_face = int(input(":"))
     charByChar("Enter the goal amount of times to roll the desired face value\n")
