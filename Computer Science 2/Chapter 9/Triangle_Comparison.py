@@ -18,6 +18,7 @@ if __name__ == "__main__":
     
     triangle1 = Triangle()
     triangle2 = Triangle()
+    
     charByChar("Enter the base and height of two triangles to compare their areas\n")
     time.sleep(1)
     charByChar("Enter the base length for first Triangle\n")
