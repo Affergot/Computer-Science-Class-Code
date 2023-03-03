@@ -477,7 +477,5 @@ def main():
     hub()
 
 
-
-#Show user options from store and give their current money amount
 if __name__ == '__main__':
     main()
