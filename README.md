@@ -1,1 +1,1 @@
-Ralph's personal code that he works on for college classes. Computer-Science-Class-Code is meant to be a data base to store all code created in projects for class
+This repository houses all of the coding projects I turned in for a grade at SWOSU. This does not mean that the program was made with instruction for the class or made for the sole purpose of the class. However, all code presented is available for hiring prospects and review by my colleagues.
